@@ -1,10 +1,11 @@
 module github.com/mayumigit/CasaOS
 
+replace github.com/mayumigit/CasaOS => ./
+
 go 1.21
 
 require (
 	github.com/Curtis-Milo/nat-type-identifier-go v0.0.0-20220215191915-18d42168c63d
-	github.com/mayumigit/CasaOS-Common v0.4.11-alpha4
 	github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf
 	github.com/deckarep/golang-set/v2 v2.3.0
 	github.com/deepmap/oapi-codegen v1.12.4
@@ -25,6 +26,7 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/maruel/natural v1.1.0
+	github.com/mayumigit/CasaOS-Common v0.4.11-alpha4
 	github.com/mholt/archiver/v3 v3.5.1
 	github.com/mileusna/useragent v1.2.1
 	github.com/moby/sys/mount v0.3.3
@@ -124,3 +126,5 @@ require (
 	modernc.org/sqlite v1.21.2 // indirect
 	mvdan.cc/sh/v3 v3.7.0 // indirect
 )
+
+replace github.com/mayumigit/CasaOS-Common => ../CasaOS-Common
