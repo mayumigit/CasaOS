@@ -11,9 +11,9 @@
 package service
 
 import (
-	"github.com/IceWhaleTech/CasaOS-Common/external"
-	"github.com/IceWhaleTech/CasaOS/codegen/message_bus"
-	"github.com/IceWhaleTech/CasaOS/pkg/config"
+	"github.com/mayumigit/CasaOS-Common/external"
+	"github.com/mayumigit/CasaOS/codegen/message_bus"
+	"github.com/mayumigit/CasaOS/pkg/config"
 	"github.com/gorilla/websocket"
 	"github.com/patrickmn/go-cache"
 	"gorm.io/gorm"

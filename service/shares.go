@@ -14,11 +14,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/IceWhaleTech/CasaOS-Common/utils/command"
-	"github.com/IceWhaleTech/CasaOS/pkg/config"
-	"github.com/IceWhaleTech/CasaOS/pkg/utils/file"
-	"github.com/IceWhaleTech/CasaOS/service/model"
-	model2 "github.com/IceWhaleTech/CasaOS/service/model"
+	"github.com/mayumigit/CasaOS-Common/utils/command"
+	"github.com/mayumigit/CasaOS/pkg/config"
+	"github.com/mayumigit/CasaOS/pkg/utils/file"
+	"github.com/mayumigit/CasaOS/service/model"
+	model2 "github.com/mayumigit/CasaOS/service/model"
 	"gorm.io/gorm"
 )
 

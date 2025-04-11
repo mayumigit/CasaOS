@@ -8,12 +8,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/IceWhaleTech/CasaOS-Common/utils/logger"
-	"github.com/IceWhaleTech/CasaOS/common"
-	model2 "github.com/IceWhaleTech/CasaOS/model"
-	"github.com/IceWhaleTech/CasaOS/model/notify"
-	"github.com/IceWhaleTech/CasaOS/service/model"
-	"github.com/IceWhaleTech/CasaOS/types"
+	"github.com/mayumigit/CasaOS-Common/utils/logger"
+	"github.com/mayumigit/CasaOS/common"
+	model2 "github.com/mayumigit/CasaOS/model"
+	"github.com/mayumigit/CasaOS/model/notify"
+	"github.com/mayumigit/CasaOS/service/model"
+	"github.com/mayumigit/CasaOS/types"
 	"go.uber.org/zap"
 	"golang.org/x/sync/syncmap"
 

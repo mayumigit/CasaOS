@@ -16,9 +16,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/IceWhaleTech/CasaOS-Common/utils/constants"
-	"github.com/IceWhaleTech/CasaOS/common"
-	"github.com/IceWhaleTech/CasaOS/model"
+	"github.com/mayumigit/CasaOS-Common/utils/constants"
+	"github.com/mayumigit/CasaOS/common"
+	"github.com/mayumigit/CasaOS/model"
 	"github.com/go-ini/ini"
 )
 
