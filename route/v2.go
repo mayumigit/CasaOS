@@ -119,7 +119,11 @@ func InitV2Router() http.Handler {
 			// jump validate when upload file
 			// because file upload can't pass validate
 			// issue: https://github.com/deepmap/oapi-codegen/issues/514
-			return strings.Contains(c.Request().Header[echo.HeaderContentType][0], "multipart/form-data")
+			headerVals := c.Request().Header[echo.HeaderContentType]
+			if len(headerVals) > 0 && strings.Contains(headerVals[0], "multipart/form-data") {
+				return true
+			}
+			return false
 		},
 		Options: openapi3filter.Options{AuthenticationFunc: openapi3filter.NoopAuthenticationFunc},
 	}))
