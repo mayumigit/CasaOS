@@ -236,7 +236,52 @@ paths:
           $ref: "#/components/responses/GetZTInfoOK"
         "500":
           $ref: "#/components/responses/ResponseInternalServerError"
-
+  /wifi:
+    get:
+      summary: Get current WiFi status
+      operationId: getWiFiStatus
+      tags:
+        - WiFi
+      responses:
+        '200':
+          description: WiFi status retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WiFiStatus'
+    post:
+      summary: Set WiFi configuration
+      operationId: setWiFiConfig
+      tags:
+        - WiFi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WiFiConfig'
+      responses:
+        '200':
+          description: WiFi configuration applied
+  /wifi/ap-mode:
+      post:
+        summary: Switch to AP mode
+        operationId: setWiFiAPMode
+        tags:
+          - WiFi
+        responses:
+          '200':
+            description: Switched to AP mode successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: ok
+          '500':
+            description: Failed to switch to AP mode
 components:
   securitySchemes:
     access_token:
@@ -357,3 +402,30 @@ components:
         status:
           type: string
           example: "online"
+    WiFiStatus:
+      type: object
+      properties:
+        mode:
+          type: string
+          description: WiFi mode (e.g., client or ap)
+        ssid:
+          type: string
+          description: Currently connected SSID
+        ip_address:
+          type: string
+          description: Assigned IP address
+    WiFiConfig:
+      type: object
+      required:
+        - mode
+      properties:
+        mode:
+          type: string
+          description: WiFi mode to switch to
+          enum: [client, ap]
+        ssid:
+          type: string
+          description: SSID to connect to (only in client mode)
+        password:
+          type: string
+          description: WiFi password (only in client mode)

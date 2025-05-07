@@ -1,0 +1,7 @@
+[Match]
+Name={{INTERFACE_NAME}}
+
+[Network]
+Address={{AP_IP_ADDRESS}}/24
+Gateway={{AP_IP_ADDRESS}}
+DHCPServer=yes
