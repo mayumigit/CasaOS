@@ -11,10 +11,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-
 ### Removed
 
 ### Security
+
+## [Unreleased]
+### Added
+- Added API endpoints to configure Wi-Fi settings in both Access Point (AP) mode and Wi-Fi client mode.
+
+
+## [0.4.15-cs1.0.0]
+
+### Changed
+- Replaced module paths to use our own GitHub fork instead of the original IceWhaleTech repository.
+  (e.g., `github.com/IceWhaleTech/CasaOS` → `github.com/mayumigit/CasaOS`)
 
 ## [0.4.3]
 

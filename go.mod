@@ -1,7 +1,5 @@
 module github.com/mayumigit/CasaOS
 
-replace github.com/mayumigit/CasaOS => ./
-
 go 1.21
 
 require (
@@ -26,7 +24,7 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/labstack/echo/v4 v4.12.0
 	github.com/maruel/natural v1.1.0
-	github.com/mayumigit/CasaOS-Common v0.4.11-alpha4
+	github.com/mayumigit/CasaOS-Common v0.4.15-alpha1-cs1.0.0
 	github.com/mholt/archiver/v3 v3.5.1
 	github.com/mileusna/useragent v1.2.1
 	github.com/moby/sys/mount v0.3.3
@@ -126,5 +124,3 @@ require (
 	modernc.org/sqlite v1.21.2 // indirect
 	mvdan.cc/sh/v3 v3.7.0 // indirect
 )
-
-replace github.com/mayumigit/CasaOS-Common => ../CasaOS-Common
