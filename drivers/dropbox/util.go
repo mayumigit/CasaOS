@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/IceWhaleTech/CasaOS-Common/utils/logger"
-	"github.com/IceWhaleTech/CasaOS/drivers/base"
+	"github.com/mayumigit/CasaOS-Common/utils/logger"
+	"github.com/mayumigit/CasaOS/drivers/base"
 	"github.com/go-resty/resty/v2"
 	"go.uber.org/zap"
 )

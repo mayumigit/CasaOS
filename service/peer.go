@@ -11,8 +11,8 @@
 package service
 
 import (
-	"github.com/IceWhaleTech/CasaOS/service/model"
-	model2 "github.com/IceWhaleTech/CasaOS/service/model"
+	"github.com/mayumigit/CasaOS/service/model"
+	model2 "github.com/mayumigit/CasaOS/service/model"
 	"gorm.io/gorm"
 )
 

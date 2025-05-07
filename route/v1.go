@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/IceWhaleTech/CasaOS-Common/external"
-	"github.com/IceWhaleTech/CasaOS-Common/utils/jwt"
-	"github.com/IceWhaleTech/CasaOS/common"
-	"github.com/IceWhaleTech/CasaOS/pkg/config"
-	v1 "github.com/IceWhaleTech/CasaOS/route/v1"
+	"github.com/mayumigit/CasaOS-Common/external"
+	"github.com/mayumigit/CasaOS-Common/utils/jwt"
+	"github.com/mayumigit/CasaOS/common"
+	"github.com/mayumigit/CasaOS/pkg/config"
+	v1 "github.com/mayumigit/CasaOS/route/v1"
 	"github.com/labstack/echo/v4"
 	echo_middleware "github.com/labstack/echo/v4/middleware"
 )

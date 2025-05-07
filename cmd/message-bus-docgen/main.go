@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/IceWhaleTech/CasaOS-Common/external"
-	"github.com/IceWhaleTech/CasaOS/codegen/message_bus"
-	"github.com/IceWhaleTech/CasaOS/common"
+	"github.com/mayumigit/CasaOS-Common/external"
+	"github.com/mayumigit/CasaOS/codegen/message_bus"
+	"github.com/mayumigit/CasaOS/common"
 	"github.com/samber/lo"
 )
 
