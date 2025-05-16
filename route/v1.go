@@ -190,11 +190,6 @@ func InitV1Router() http.Handler {
 		{
 			v1OtherGroup.GET("/search", v1.GetSearchResult)
 		}
-		v1ZerotierGroup := v1Group.Group("/zt")
-		v1ZerotierGroup.Use()
-		{
-			v1ZerotierGroup.Any("/*url", v1.ZerotierProxy)
-		}
 	}
 
 	return e
