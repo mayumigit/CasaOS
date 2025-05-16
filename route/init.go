@@ -33,7 +33,6 @@ import (
 func InitFunction() {
 	go InitNetworkMount()
 	go InitInfo()
-	//go InitZerotier()
 }
 
 func InitInfo() {
@@ -107,6 +106,4 @@ func InitNetworkMount() {
 		logger.Error("mount storage err", zap.Any("err", err))
 	}
 }
-func InitZerotier() {
-	v1.CheckNetwork()
-}
+
