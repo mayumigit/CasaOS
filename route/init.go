@@ -25,7 +25,6 @@ import (
 	"github.com/mayumigit/CasaOS/pkg/samba"
 	"github.com/mayumigit/CasaOS/pkg/utils/encryption"
 	"github.com/mayumigit/CasaOS/pkg/utils/file"
-	v1 "github.com/mayumigit/CasaOS/route/v1"
 	"github.com/mayumigit/CasaOS/service"
 	"go.uber.org/zap"
 )
