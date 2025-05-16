@@ -40,7 +40,6 @@ func InitV1Router() http.Handler {
 	})
 	e.GET("/v1/recover/:type", v1.GetRecoverStorage)
 	v1Group := e.Group("/v1")
-	//	e.Any("/v1/test", v1.CheckNetwork)
 	v1Group.Use(echo_middleware.JWTWithConfig(echo_middleware.JWTConfig{
 		Skipper: func(c echo.Context) bool {
 			return c.RealIP() == "::1" || c.RealIP() == "127.0.0.1"
