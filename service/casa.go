@@ -8,6 +8,7 @@ import (
 	"github.com/mayumigit/CasaOS/pkg/config"
 	"github.com/mayumigit/CasaOS/pkg/utils/httper"
 	"github.com/tidwall/gjson"
+	"fmt"
 )
 
 type CasaService interface {
@@ -33,10 +34,9 @@ func (o *casaService) GetCasaosVersion() model.Version {
 		}
 	}
 
-	v := httper.OasisGet(config.ServerInfo.ServerApi + "/v1/sys/version")
+	v := httper.Get(config.ServerInfo.ServerApi + "/v1/sys/version", nil)
 	data := gjson.Get(v, "data")
 	json2.Unmarshal([]byte(data.String()), &version)
-
 	if len(version.Version) > 0 {
 		Cache.Set(keyName, v, time.Minute*20)
 	}

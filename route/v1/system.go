@@ -21,7 +21,7 @@ import (
 	"github.com/mayumigit/CasaOS/pkg/config"
 	"github.com/mayumigit/CasaOS/pkg/utils"
 	"github.com/mayumigit/CasaOS/pkg/utils/common_err"
-	"github.com/mayumigit/CasaOS/pkg/utils/version"
+	verutil "github.com/mayumigit/CasaOS/pkg/utils/version"
 	"github.com/mayumigit/CasaOS/service"
 	model2 "github.com/mayumigit/CasaOS/service/model"
 	"github.com/mayumigit/CasaOS/types"
@@ -37,11 +37,19 @@ import (
 // @Success 200 {string} string "ok"
 // @Router /sys/version/check [get]
 func GetSystemCheckVersion(ctx echo.Context) error {
-	need, version := version.IsNeedUpdate(service.MyService.Casa().GetCasaosVersion())
+	remoteVersion := service.MyService.Casa().GetCasaosVersion()
+	need, err := verutil.IsNewerVersion(remoteVersion)
+	if err != nil {
+	return ctx.JSON(common_err.SERVICE_ERROR, model.Result{
+		Success: common_err.SERVICE_ERROR,
+		Message: common_err.GetMsg(common_err.INVALID_VERSION),
+		Data: err.Error(),
+	})
+}
 	if need {
 		installLog := model2.AppNotify{}
 		installLog.State = 0
-		installLog.Message = "New version " + version.Version + " is ready, ready to upgrade"
+		installLog.Message = "New version " + remoteVersion.Version + " is ready, ready to upgrade"
 		installLog.Type = types.NOTIFY_TYPE_NEED_CONFIRM
 		installLog.CreatedAt = strconv.FormatInt(time.Now().Unix(), 10)
 		installLog.UpdatedAt = strconv.FormatInt(time.Now().Unix(), 10)
@@ -50,7 +58,7 @@ func GetSystemCheckVersion(ctx echo.Context) error {
 	}
 	data := make(map[string]interface{}, 3)
 	data["need_update"] = need
-	data["version"] = version
+	data["version"] = remoteVersion
 	data["current_version"] = common.VERSION
 	return ctx.JSON(common_err.SUCCESS, model.Result{Success: common_err.SUCCESS, Message: common_err.GetMsg(common_err.SUCCESS), Data: data})
 }
@@ -63,9 +71,17 @@ func GetSystemCheckVersion(ctx echo.Context) error {
 // @Success 200 {string} string "ok"
 // @Router /sys/update [post]
 func SystemUpdate(ctx echo.Context) error {
-	need, version := version.IsNeedUpdate(service.MyService.Casa().GetCasaosVersion())
+	remoteVersion := service.MyService.Casa().GetCasaosVersion()
+	need, err := verutil.IsNewerVersion(remoteVersion)
+	if err != nil {
+	return ctx.JSON(common_err.SERVICE_ERROR, model.Result{
+		Success: common_err.SERVICE_ERROR,
+		Message: common_err.GetMsg(common_err.INVALID_VERSION),
+		Data: err.Error(),
+	})
+}
 	if need {
-		service.MyService.System().UpdateSystemVersion(version.Version)
+		service.MyService.System().UpdateSystemVersion(remoteVersion.Version)
 	}
 	return ctx.JSON(common_err.SUCCESS, model.Result{Success: common_err.SUCCESS, Message: common_err.GetMsg(common_err.SUCCESS)})
 }
