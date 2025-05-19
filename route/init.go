@@ -25,7 +25,6 @@ import (
 	"github.com/mayumigit/CasaOS/pkg/samba"
 	"github.com/mayumigit/CasaOS/pkg/utils/encryption"
 	"github.com/mayumigit/CasaOS/pkg/utils/file"
-	v1 "github.com/mayumigit/CasaOS/route/v1"
 	"github.com/mayumigit/CasaOS/service"
 	"go.uber.org/zap"
 )
@@ -33,7 +32,6 @@ import (
 func InitFunction() {
 	go InitNetworkMount()
 	go InitInfo()
-	//go InitZerotier()
 }
 
 func InitInfo() {
@@ -107,6 +105,4 @@ func InitNetworkMount() {
 		logger.Error("mount storage err", zap.Any("err", err))
 	}
 }
-func InitZerotier() {
-	v1.CheckNetwork()
-}
+
