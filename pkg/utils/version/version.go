@@ -13,10 +13,36 @@ package version
 import (
 	"strconv"
 	"strings"
-
+	"fmt"
 	"github.com/mayumigit/CasaOS/common"
 	"github.com/mayumigit/CasaOS/model"
 )
+func ParseFullVersion(ver string) ([]int, error) {
+	// 例: "v0.4.18-cs1.0.0"
+	ver = strings.TrimPrefix(ver, "v")
+
+	parts := strings.Split(ver, "-cs")
+	if len(parts) != 2 {
+		return nil, fmt.Errorf("invalid version format")
+	}
+
+	upstreamParts := strings.Split(parts[0], ".")
+	customParts := strings.Split(parts[1], ".")
+
+	if len(upstreamParts) != 3 || len(customParts) != 3 {
+		return nil, fmt.Errorf("version must have 3 upstream and 3 custom segments")
+	}
+
+	result := []int{}
+	for _, s := range append(upstreamParts, customParts...) {
+		n, err := strconv.Atoi(s)
+		if err != nil {
+			return nil, err
+		}
+		result = append(result, n)
+	}
+	return result, nil
+}
 
 func IsNeedUpdate(version model.Version) (bool, model.Version) {
 
@@ -41,4 +67,25 @@ func IsNeedUpdate(version model.Version) (bool, model.Version) {
 		}
 	}
 	return false, version
+}
+
+func IsNewerVersion(remote model.Version) (bool, error) {
+	//CassetteOS Customize from IsNeedUpdate
+	rv, err := ParseFullVersion(remote.Version)
+	if err != nil {
+		return false, err
+	}
+	lv, err := ParseFullVersion(common.VERSION)
+	if err != nil {
+		return false, err
+	}
+	for i := 0; i < len(rv); i++ {
+		if rv[i] > lv[i] {
+			return true, nil
+		}
+		if rv[i] < lv[i] {
+			return false, nil
+		}
+	}
+	return false, nil 
 }
