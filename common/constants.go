@@ -2,6 +2,6 @@ package common
 
 const (
 	SERVICENAME = "cassetteos"
-	VERSION     = "0.4.15"
+	VERSION     = "v0.4.15-cs1.1.0"
 	BODY        = " "
 )
