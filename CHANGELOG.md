@@ -15,6 +15,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
+## [Unreleased]
+### Changed
+- Switched version update check to custom CassetteServer update server.
+- Replaced version comparison logic to support custom versioning scheme (e.g. v0.4.18-cs1.0.0).
+- Updated `VERSION` constant in `constants.go` to reflect CassetteServer versioning.
+
+### Removed
+- Removed deprecated ZeroTier-related APIs and constants.
+
+
+### Added
+- Added API endpoints to configure Wi-Fi settings in both Access Point (AP) mode and Wi-Fi client mode.
+
+
 ## [0.4.15-cs1.1.0]
 ### Added
 - Added API endpoints to configure Wi-Fi settings in both Access Point (AP) mode and Wi-Fi client mode.
